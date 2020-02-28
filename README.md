@@ -15,7 +15,7 @@ Perangkat Keras Yang Digunakan, Diantaranya :
 
 Perangkat Lunak Yang Digunakan, Diantaranya :
 1.Arduino IDE
-2.Thingspeak Platform (Online)
+2.Blynk Platform (Installed Smartphone Android/IoS)
 3.Library : ESP8266, Blynk_Release_v0.4.10-1, blynk-library-master
 
 
