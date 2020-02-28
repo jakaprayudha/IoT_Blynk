@@ -1,0 +1,32 @@
+#include "DHT.h"        
+#define DHTTYPE DHT11  
+#include <ESP8266WiFi.h>
+#define BLYNK_PRINT Serial   
+#include <BlynkSimpleEsp8266.h>
+#define dht_dpin 'PIN DHT'
+DHT dht(dht_dpin, DHTTYPE); 
+char auth[] = "AUTENTIKASI BLYNK SERVE EMAIL";
+char ssid[] = "SSID NAME";
+char pass[] = "PASSWORD SSID";
+void setup(void)
+{ 
+  dht.begin();
+  Serial.begin(9600);
+  Blynk.begin(auth, ssid, pass);
+  Serial.println("Humidity and temperature \n\n");
+  Serial.println("==========================================");
+  delay(700);
+}
+//Definisi Widget"Komponen Yang Digunakan" Exam : WidgetLCD lcd(V1);
+void loop() {
+    Blynk.run();
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();         
+    Serial.print("Current humidity = ");
+    Serial.print(h);
+    Serial.print("%  ");
+    Serial.print("temperature = ");
+    Serial.print(t); 
+    Serial.println("C  ");
+    // Baca Data Sensor Dan Dikirim Menggunakan Virtual Port Pada Blynk : Exam Blynk.virtualWrite(V0, t); 
+}
